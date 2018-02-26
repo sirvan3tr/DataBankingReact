@@ -1,0 +1,990 @@
+{
+  "contractName": "omneeRegistry",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "address"
+        },
+        {
+          "name": "_URL",
+          "type": "string"
+        }
+      ],
+      "name": "createLink",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "getLink",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "test",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6104c98061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d6abe4f1461005c578063a5eca91d14610141578063f8a8fd6d146101bd575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101e6565b60405180806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156101055780820151818401526020810190506100ea565b50505050905090810190601f1680156101325780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b341561014c57600080fd5b6101bb600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610338565b005b34156101c857600080fd5b6101d06103db565b6040518082815260200191505060405180910390f35b6101ee6103e4565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000016000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103285780601f106102fd57610100808354040283529160200191610328565b820191906000526020600020905b81548152906001019060200180831161030b57829003601f168201915b5050505050915091509150915091565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050818160000190805190602001906103929291906103f8565b50338160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050565b60006045905090565b602060405190810160405280600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061043957805160ff1916838001178555610467565b82800160010185558215610467579182015b8281111561046657825182559160200191906001019061044b565b5b5090506104749190610478565b5090565b61049a91905b8082111561049657600081600090555060010161047e565b5090565b905600a165627a7a723058207e7e858e30110de35ad521550c87047795fd9bb2f5d43d464fbab517a8362f500029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639d6abe4f1461005c578063a5eca91d14610141578063f8a8fd6d146101bd575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101e6565b60405180806020018373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156101055780820151818401526020810190506100ea565b50505050905090810190601f1680156101325780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b341561014c57600080fd5b6101bb600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610338565b005b34156101c857600080fd5b6101d06103db565b6040518082815260200191505060405180910390f35b6101ee6103e4565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000016000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103285780601f106102fd57610100808354040283529160200191610328565b820191906000526020600020905b81548152906001019060200180831161030b57829003601f168201915b5050505050915091509150915091565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050818160000190805190602001906103929291906103f8565b50338160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050565b60006045905090565b602060405190810160405280600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061043957805160ff1916838001178555610467565b82800160010185558215610467579182015b8281111561046657825182559160200191906001019061044b565b5b5090506104749190610478565b5090565b61049a91905b8082111561049657600081600090555060010161047e565b5090565b905600a165627a7a723058207e7e858e30110de35ad521550c87047795fd9bb2f5d43d464fbab517a8362f500029",
+  "sourceMap": "25:704:2:-;;;228:32;;;;;;;;25:704;;;;;;",
+  "deployedSourceMap": "25:704:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;495:154;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;266:219:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;655:72;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;495:154;555:6;;:::i;:::-;563:7;590:8;:18;599:8;590:18;;;;;;;;;;;;;;;:23;;615:8;:18;624:8;615:18;;;;;;;;;;;;;;;:26;;;;;;;;;;;;582:60;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;495:154;;;:::o;266:219::-;334:8;345;:18;354:8;345:18;;;;;;;;;;;;;;;334:29;;394:4;382;:9;;:16;;;;;;;;;;;;:::i;:::-;;423:10;408:4;:12;;;:25;;;;;;;;;;;;;;;;;;266:219;;;:::o;655:72::-;695:4;718:2;711:9;;655:72;:::o;25:704::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.6;\n\ncontract omneeRegistry {\n    \n    struct Registry {\n        string link;\n        address creator ;\n    }\n    \n    mapping (address => Registry) theLinks;\n    //address[] public instructorAccts;\n    \n    function omneeRegistry() {\n    }\n\n    function createLink(address _address, string _URL) public {\n        var link = theLinks[_address];\n        \n        link.link = _URL;\n        link.creator = msg.sender;\n        //instructorAccts.push(_address) -1;\n    }\n    \n    function getLink(address _address) constant public returns (string, address) {\n        return (theLinks[_address].link, theLinks[_address].creator);\n    }\n\n    function test() constant public returns(uint) {\n        return 69;\n    }\n}",
+  "sourcePath": "/Library/WebServer/Documents/DataBankingReact/contracts/omneeRegistry.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Library/WebServer/Documents/DataBankingReact/contracts/omneeRegistry.sol",
+      "exportedSymbols": {
+        "omneeRegistry": [
+          348
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".6"
+          ]
+        },
+        "id": 280,
+        "name": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            348
+          ],
+          "name": "omneeRegistry",
+          "scope": 349
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "omneeRegistry.Registry",
+              "name": "Registry",
+              "scope": 348,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "link",
+                  "scope": 285,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 281,
+                    "name": "ElementaryTypeName",
+                    "src": "85:6:2"
+                  }
+                ],
+                "id": 282,
+                "name": "VariableDeclaration",
+                "src": "85:11:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "creator",
+                  "scope": 285,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 283,
+                    "name": "ElementaryTypeName",
+                    "src": "106:7:2"
+                  }
+                ],
+                "id": 284,
+                "name": "VariableDeclaration",
+                "src": "106:15:2"
+              }
+            ],
+            "id": 285,
+            "name": "StructDefinition",
+            "src": "59:70:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "theLinks",
+              "scope": 348,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct omneeRegistry.Registry storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 286,
+                    "name": "ElementaryTypeName",
+                    "src": "148:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Registry",
+                      "referencedDeclaration": 285,
+                      "type": "struct omneeRegistry.Registry storage pointer"
+                    },
+                    "id": 287,
+                    "name": "UserDefinedTypeName",
+                    "src": "159:8:2"
+                  }
+                ],
+                "id": 288,
+                "name": "Mapping",
+                "src": "139:29:2"
+              }
+            ],
+            "id": 289,
+            "name": "VariableDeclaration",
+            "src": "139:38:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "omneeRegistry",
+              "payable": false,
+              "scope": 348,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 290,
+                "name": "ParameterList",
+                "src": "250:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 291,
+                "name": "ParameterList",
+                "src": "253:0:2"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 292,
+                "name": "Block",
+                "src": "253:7:2"
+              }
+            ],
+            "id": 293,
+            "name": "FunctionDefinition",
+            "src": "228:32:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createLink",
+              "payable": false,
+              "scope": 348,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_address",
+                      "scope": 319,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 294,
+                        "name": "ElementaryTypeName",
+                        "src": "286:7:2"
+                      }
+                    ],
+                    "id": 295,
+                    "name": "VariableDeclaration",
+                    "src": "286:16:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_URL",
+                      "scope": 319,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 296,
+                        "name": "ElementaryTypeName",
+                        "src": "304:6:2"
+                      }
+                    ],
+                    "id": 297,
+                    "name": "VariableDeclaration",
+                    "src": "304:11:2"
+                  }
+                ],
+                "id": 298,
+                "name": "ParameterList",
+                "src": "285:31:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 299,
+                "name": "ParameterList",
+                "src": "324:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        300
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "link",
+                          "scope": 319,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "struct omneeRegistry.Registry storage pointer",
+                          "typeName": null,
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [],
+                        "id": 300,
+                        "name": "VariableDeclaration",
+                        "src": "334:8:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "struct omneeRegistry.Registry storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 289,
+                              "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
+                              "value": "theLinks"
+                            },
+                            "id": 301,
+                            "name": "Identifier",
+                            "src": "345:8:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 295,
+                              "type": "address",
+                              "value": "_address"
+                            },
+                            "id": 302,
+                            "name": "Identifier",
+                            "src": "354:8:2"
+                          }
+                        ],
+                        "id": 303,
+                        "name": "IndexAccess",
+                        "src": "345:18:2"
+                      }
+                    ],
+                    "id": 304,
+                    "name": "VariableDeclarationStatement",
+                    "src": "334:29:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "link",
+                              "referencedDeclaration": 282,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 300,
+                                  "type": "struct omneeRegistry.Registry storage pointer",
+                                  "value": "link"
+                                },
+                                "id": 305,
+                                "name": "Identifier",
+                                "src": "382:4:2"
+                              }
+                            ],
+                            "id": 307,
+                            "name": "MemberAccess",
+                            "src": "382:9:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 297,
+                              "type": "string memory",
+                              "value": "_URL"
+                            },
+                            "id": 308,
+                            "name": "Identifier",
+                            "src": "394:4:2"
+                          }
+                        ],
+                        "id": 309,
+                        "name": "Assignment",
+                        "src": "382:16:2"
+                      }
+                    ],
+                    "id": 310,
+                    "name": "ExpressionStatement",
+                    "src": "382:16:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "creator",
+                              "referencedDeclaration": 284,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 300,
+                                  "type": "struct omneeRegistry.Registry storage pointer",
+                                  "value": "link"
+                                },
+                                "id": 311,
+                                "name": "Identifier",
+                                "src": "408:4:2"
+                              }
+                            ],
+                            "id": 313,
+                            "name": "MemberAccess",
+                            "src": "408:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 360,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 314,
+                                "name": "Identifier",
+                                "src": "423:3:2"
+                              }
+                            ],
+                            "id": 315,
+                            "name": "MemberAccess",
+                            "src": "423:10:2"
+                          }
+                        ],
+                        "id": 316,
+                        "name": "Assignment",
+                        "src": "408:25:2"
+                      }
+                    ],
+                    "id": 317,
+                    "name": "ExpressionStatement",
+                    "src": "408:25:2"
+                  }
+                ],
+                "id": 318,
+                "name": "Block",
+                "src": "324:161:2"
+              }
+            ],
+            "id": 319,
+            "name": "FunctionDefinition",
+            "src": "266:219:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getLink",
+              "payable": false,
+              "scope": 348,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_address",
+                      "scope": 339,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 320,
+                        "name": "ElementaryTypeName",
+                        "src": "512:7:2"
+                      }
+                    ],
+                    "id": 321,
+                    "name": "VariableDeclaration",
+                    "src": "512:16:2"
+                  }
+                ],
+                "id": 322,
+                "name": "ParameterList",
+                "src": "511:18:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 339,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 323,
+                        "name": "ElementaryTypeName",
+                        "src": "555:6:2"
+                      }
+                    ],
+                    "id": 324,
+                    "name": "VariableDeclaration",
+                    "src": "555:6:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 339,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 325,
+                        "name": "ElementaryTypeName",
+                        "src": "563:7:2"
+                      }
+                    ],
+                    "id": 326,
+                    "name": "VariableDeclaration",
+                    "src": "563:7:2"
+                  }
+                ],
+                "id": 327,
+                "name": "ParameterList",
+                "src": "554:17:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 327
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "tuple(string storage ref,address)"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "link",
+                              "referencedDeclaration": 282,
+                              "type": "string storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct omneeRegistry.Registry storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 289,
+                                      "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
+                                      "value": "theLinks"
+                                    },
+                                    "id": 328,
+                                    "name": "Identifier",
+                                    "src": "590:8:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 321,
+                                      "type": "address",
+                                      "value": "_address"
+                                    },
+                                    "id": 329,
+                                    "name": "Identifier",
+                                    "src": "599:8:2"
+                                  }
+                                ],
+                                "id": 330,
+                                "name": "IndexAccess",
+                                "src": "590:18:2"
+                              }
+                            ],
+                            "id": 331,
+                            "name": "MemberAccess",
+                            "src": "590:23:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "creator",
+                              "referencedDeclaration": 284,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct omneeRegistry.Registry storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 289,
+                                      "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
+                                      "value": "theLinks"
+                                    },
+                                    "id": 332,
+                                    "name": "Identifier",
+                                    "src": "615:8:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 321,
+                                      "type": "address",
+                                      "value": "_address"
+                                    },
+                                    "id": 333,
+                                    "name": "Identifier",
+                                    "src": "624:8:2"
+                                  }
+                                ],
+                                "id": 334,
+                                "name": "IndexAccess",
+                                "src": "615:18:2"
+                              }
+                            ],
+                            "id": 335,
+                            "name": "MemberAccess",
+                            "src": "615:26:2"
+                          }
+                        ],
+                        "id": 336,
+                        "name": "TupleExpression",
+                        "src": "589:53:2"
+                      }
+                    ],
+                    "id": 337,
+                    "name": "Return",
+                    "src": "582:60:2"
+                  }
+                ],
+                "id": 338,
+                "name": "Block",
+                "src": "572:77:2"
+              }
+            ],
+            "id": 339,
+            "name": "FunctionDefinition",
+            "src": "495:154:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "test",
+              "payable": false,
+              "scope": 348,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 340,
+                "name": "ParameterList",
+                "src": "668:2:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 347,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 341,
+                        "name": "ElementaryTypeName",
+                        "src": "695:4:2"
+                      }
+                    ],
+                    "id": 342,
+                    "name": "VariableDeclaration",
+                    "src": "695:4:2"
+                  }
+                ],
+                "id": 343,
+                "name": "ParameterList",
+                "src": "694:6:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 343
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "3639",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "number",
+                          "type": "int_const 69",
+                          "value": "69"
+                        },
+                        "id": 344,
+                        "name": "Literal",
+                        "src": "718:2:2"
+                      }
+                    ],
+                    "id": 345,
+                    "name": "Return",
+                    "src": "711:9:2"
+                  }
+                ],
+                "id": 346,
+                "name": "Block",
+                "src": "701:26:2"
+              }
+            ],
+            "id": 347,
+            "name": "FunctionDefinition",
+            "src": "655:72:2"
+          }
+        ],
+        "id": 348,
+        "name": "ContractDefinition",
+        "src": "25:704:2"
+      }
+    ],
+    "id": 349,
+    "name": "SourceUnit",
+    "src": "0:729:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {
+    "4447": {
+      "events": {},
+      "links": {},
+      "address": "0x4e72770760c011647d4873f60a3cf6cdea896cd8"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-26T15:12:56.135Z"
+}
