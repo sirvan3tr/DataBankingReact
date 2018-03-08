@@ -3,10 +3,13 @@
 body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
+  /*background: url('./imgs/geometry.png');*/
 }
 
 h1, h2, h3 {
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  /*font-family: 'Oswald', 'Arial Narrow', sans-serif; */
+  /* color: #196cbb; */
+  color: #093443;
 }
 
 code {
@@ -22,6 +25,7 @@ code {
   padding: 45px 20px;
 }
 
+/*
 .pure-button-primary {
   background-color: #0c1a2b;
 }
@@ -33,14 +37,33 @@ code {
 .pure-form input[type="text"]:focus {
   border-color: #0c1a2b;
 }
+*/
 
+.pure-form input[type=password],
+.pure-form input[type=email],
+.pure-form input[type=url],
+.pure-form input[type=date],
+.pure-form input[type=month],
+.pure-form input[type=time],
+.pure-form input[type=datetime],
+.pure-form input[type=datetime-local],
+.pure-form input[type=week],
+.pure-form input[type=tel],
+.pure-form input[type=color],
+.pure-form input[type=number],
+.pure-form input[type=search],
+.pure-form input[type=text],
+.pure-form select,
+.pure-form textarea {
+  box-shadow: none;
+}
 /* NAVBAR */
 
 .navbar {
-  position: fixed;
-  padding: 5px;
-  background: #ccc;
-  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  padding: 10px;
+  background-color: #196cbb;
+  background-color: #09d096;
+  /*font-family: 'Oswald', 'Arial Narrow', sans-serif; */
 }
 
 .navbar a {
@@ -50,7 +73,8 @@ code {
 .navbar a:active,
 .navbar a:focus,
 .navbar a:hover {
-  background: #233e5e;
+  background: none;
+  text-decoration: underline;
 }
 
 .navbar .pure-menu-heading {
@@ -65,4 +89,24 @@ code {
 .navbar .uport-logo {
   height: 16px;
   margin-right: 10px;
+}
+
+.header-logo {
+  padding-top: 5px;
+}
+
+/* General */
+.address {
+  border: 1px solid #09d096;
+  font-size: 10px;
+  padding: 5px;
+  width: 50%;
+  overflow: scroll;
+  font-family: monospace;
+  color: #09d096;
+  text-align: center;
+}
+
+.padding20 {
+  padding: 20px;
 }

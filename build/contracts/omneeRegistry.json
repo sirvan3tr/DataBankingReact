@@ -74,7 +74,7 @@
       "absolutePath": "/Library/WebServer/Documents/DataBankingReact/contracts/omneeRegistry.sol",
       "exportedSymbols": {
         "omneeRegistry": [
-          348
+          342
         ]
       }
     },
@@ -88,7 +88,7 @@
             ".6"
           ]
         },
-        "id": 280,
+        "id": 274,
         "name": "PragmaDirective",
         "src": "0:23:2"
       },
@@ -104,17 +104,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            348
+            342
           ],
           "name": "omneeRegistry",
-          "scope": 349
+          "scope": 343
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "omneeRegistry.Registry",
               "name": "Registry",
-              "scope": 348,
+              "scope": 342,
               "visibility": "public"
             },
             "children": [
@@ -122,7 +122,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "link",
-                  "scope": 285,
+                  "scope": 279,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "string storage pointer",
@@ -135,12 +135,12 @@
                       "name": "string",
                       "type": "string storage pointer"
                     },
-                    "id": 281,
+                    "id": 275,
                     "name": "ElementaryTypeName",
                     "src": "85:6:2"
                   }
                 ],
-                "id": 282,
+                "id": 276,
                 "name": "VariableDeclaration",
                 "src": "85:11:2"
               },
@@ -148,7 +148,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "creator",
-                  "scope": 285,
+                  "scope": 279,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -161,17 +161,17 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 283,
+                    "id": 277,
                     "name": "ElementaryTypeName",
                     "src": "106:7:2"
                   }
                 ],
-                "id": 284,
+                "id": 278,
                 "name": "VariableDeclaration",
                 "src": "106:15:2"
               }
             ],
-            "id": 285,
+            "id": 279,
             "name": "StructDefinition",
             "src": "59:70:2"
           },
@@ -179,7 +179,7 @@
             "attributes": {
               "constant": false,
               "name": "theLinks",
-              "scope": 348,
+              "scope": 342,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
@@ -197,7 +197,7 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 286,
+                    "id": 280,
                     "name": "ElementaryTypeName",
                     "src": "148:7:2"
                   },
@@ -205,20 +205,20 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "Registry",
-                      "referencedDeclaration": 285,
+                      "referencedDeclaration": 279,
                       "type": "struct omneeRegistry.Registry storage pointer"
                     },
-                    "id": 287,
+                    "id": 281,
                     "name": "UserDefinedTypeName",
                     "src": "159:8:2"
                   }
                 ],
-                "id": 288,
+                "id": 282,
                 "name": "Mapping",
                 "src": "139:29:2"
               }
             ],
-            "id": 289,
+            "id": 283,
             "name": "VariableDeclaration",
             "src": "139:38:2"
           },
@@ -232,7 +232,7 @@
               ],
               "name": "omneeRegistry",
               "payable": false,
-              "scope": 348,
+              "scope": 342,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -245,7 +245,7 @@
                   ]
                 },
                 "children": [],
-                "id": 290,
+                "id": 284,
                 "name": "ParameterList",
                 "src": "250:2:2"
               },
@@ -256,7 +256,7 @@
                   ]
                 },
                 "children": [],
-                "id": 291,
+                "id": 285,
                 "name": "ParameterList",
                 "src": "253:0:2"
               },
@@ -267,12 +267,12 @@
                   ]
                 },
                 "children": [],
-                "id": 292,
+                "id": 286,
                 "name": "Block",
                 "src": "253:7:2"
               }
             ],
-            "id": 293,
+            "id": 287,
             "name": "FunctionDefinition",
             "src": "228:32:2"
           },
@@ -286,7 +286,7 @@
               ],
               "name": "createLink",
               "payable": false,
-              "scope": 348,
+              "scope": 342,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -298,7 +298,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_address",
-                      "scope": 319,
+                      "scope": 313,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -311,12 +311,12 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 294,
+                        "id": 288,
                         "name": "ElementaryTypeName",
                         "src": "286:7:2"
                       }
                     ],
-                    "id": 295,
+                    "id": 289,
                     "name": "VariableDeclaration",
                     "src": "286:16:2"
                   },
@@ -324,7 +324,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_URL",
-                      "scope": 319,
+                      "scope": 313,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -337,17 +337,17 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 296,
+                        "id": 290,
                         "name": "ElementaryTypeName",
                         "src": "304:6:2"
                       }
                     ],
-                    "id": 297,
+                    "id": 291,
                     "name": "VariableDeclaration",
                     "src": "304:11:2"
                   }
                 ],
-                "id": 298,
+                "id": 292,
                 "name": "ParameterList",
                 "src": "285:31:2"
               },
@@ -358,7 +358,7 @@
                   ]
                 },
                 "children": [],
-                "id": 299,
+                "id": 293,
                 "name": "ParameterList",
                 "src": "324:0:2"
               },
@@ -367,7 +367,7 @@
                   {
                     "attributes": {
                       "assignments": [
-                        300
+                        294
                       ]
                     },
                     "children": [
@@ -375,7 +375,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "link",
-                          "scope": 319,
+                          "scope": 313,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "struct omneeRegistry.Registry storage pointer",
@@ -384,7 +384,7 @@
                           "visibility": "internal"
                         },
                         "children": [],
-                        "id": 300,
+                        "id": 294,
                         "name": "VariableDeclaration",
                         "src": "334:8:2"
                       },
@@ -404,11 +404,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 289,
+                              "referencedDeclaration": 283,
                               "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
                               "value": "theLinks"
                             },
-                            "id": 301,
+                            "id": 295,
                             "name": "Identifier",
                             "src": "345:8:2"
                           },
@@ -418,21 +418,21 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 295,
+                              "referencedDeclaration": 289,
                               "type": "address",
                               "value": "_address"
                             },
-                            "id": 302,
+                            "id": 296,
                             "name": "Identifier",
                             "src": "354:8:2"
                           }
                         ],
-                        "id": 303,
+                        "id": 297,
                         "name": "IndexAccess",
                         "src": "345:18:2"
                       }
                     ],
-                    "id": 304,
+                    "id": 298,
                     "name": "VariableDeclarationStatement",
                     "src": "334:29:2"
                   },
@@ -457,7 +457,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "link",
-                              "referencedDeclaration": 282,
+                              "referencedDeclaration": 276,
                               "type": "string storage ref"
                             },
                             "children": [
@@ -467,16 +467,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 300,
+                                  "referencedDeclaration": 294,
                                   "type": "struct omneeRegistry.Registry storage pointer",
                                   "value": "link"
                                 },
-                                "id": 305,
+                                "id": 299,
                                 "name": "Identifier",
                                 "src": "382:4:2"
                               }
                             ],
-                            "id": 307,
+                            "id": 301,
                             "name": "MemberAccess",
                             "src": "382:9:2"
                           },
@@ -486,21 +486,21 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 297,
+                              "referencedDeclaration": 291,
                               "type": "string memory",
                               "value": "_URL"
                             },
-                            "id": 308,
+                            "id": 302,
                             "name": "Identifier",
                             "src": "394:4:2"
                           }
                         ],
-                        "id": 309,
+                        "id": 303,
                         "name": "Assignment",
                         "src": "382:16:2"
                       }
                     ],
-                    "id": 310,
+                    "id": 304,
                     "name": "ExpressionStatement",
                     "src": "382:16:2"
                   },
@@ -525,7 +525,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "creator",
-                              "referencedDeclaration": 284,
+                              "referencedDeclaration": 278,
                               "type": "address"
                             },
                             "children": [
@@ -535,16 +535,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 300,
+                                  "referencedDeclaration": 294,
                                   "type": "struct omneeRegistry.Registry storage pointer",
                                   "value": "link"
                                 },
-                                "id": 311,
+                                "id": 305,
                                 "name": "Identifier",
                                 "src": "408:4:2"
                               }
                             ],
-                            "id": 313,
+                            "id": 307,
                             "name": "MemberAccess",
                             "src": "408:12:2"
                           },
@@ -566,36 +566,36 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 360,
+                                  "referencedDeclaration": 354,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 314,
+                                "id": 308,
                                 "name": "Identifier",
                                 "src": "423:3:2"
                               }
                             ],
-                            "id": 315,
+                            "id": 309,
                             "name": "MemberAccess",
                             "src": "423:10:2"
                           }
                         ],
-                        "id": 316,
+                        "id": 310,
                         "name": "Assignment",
                         "src": "408:25:2"
                       }
                     ],
-                    "id": 317,
+                    "id": 311,
                     "name": "ExpressionStatement",
                     "src": "408:25:2"
                   }
                 ],
-                "id": 318,
+                "id": 312,
                 "name": "Block",
                 "src": "324:161:2"
               }
             ],
-            "id": 319,
+            "id": 313,
             "name": "FunctionDefinition",
             "src": "266:219:2"
           },
@@ -609,7 +609,7 @@
               ],
               "name": "getLink",
               "payable": false,
-              "scope": 348,
+              "scope": 342,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -621,7 +621,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_address",
-                      "scope": 339,
+                      "scope": 333,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -634,17 +634,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 320,
+                        "id": 314,
                         "name": "ElementaryTypeName",
                         "src": "512:7:2"
                       }
                     ],
-                    "id": 321,
+                    "id": 315,
                     "name": "VariableDeclaration",
                     "src": "512:16:2"
                   }
                 ],
-                "id": 322,
+                "id": 316,
                 "name": "ParameterList",
                 "src": "511:18:2"
               },
@@ -654,7 +654,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 339,
+                      "scope": 333,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -667,12 +667,12 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 323,
+                        "id": 317,
                         "name": "ElementaryTypeName",
                         "src": "555:6:2"
                       }
                     ],
-                    "id": 324,
+                    "id": 318,
                     "name": "VariableDeclaration",
                     "src": "555:6:2"
                   },
@@ -680,7 +680,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 339,
+                      "scope": 333,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -693,17 +693,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 325,
+                        "id": 319,
                         "name": "ElementaryTypeName",
                         "src": "563:7:2"
                       }
                     ],
-                    "id": 326,
+                    "id": 320,
                     "name": "VariableDeclaration",
                     "src": "563:7:2"
                   }
                 ],
-                "id": 327,
+                "id": 321,
                 "name": "ParameterList",
                 "src": "554:17:2"
               },
@@ -711,7 +711,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 327
+                      "functionReturnParameters": 321
                     },
                     "children": [
                       {
@@ -733,7 +733,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "link",
-                              "referencedDeclaration": 282,
+                              "referencedDeclaration": 276,
                               "type": "string storage ref"
                             },
                             "children": [
@@ -753,11 +753,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 289,
+                                      "referencedDeclaration": 283,
                                       "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
                                       "value": "theLinks"
                                     },
-                                    "id": 328,
+                                    "id": 322,
                                     "name": "Identifier",
                                     "src": "590:8:2"
                                   },
@@ -767,21 +767,21 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 321,
+                                      "referencedDeclaration": 315,
                                       "type": "address",
                                       "value": "_address"
                                     },
-                                    "id": 329,
+                                    "id": 323,
                                     "name": "Identifier",
                                     "src": "599:8:2"
                                   }
                                 ],
-                                "id": 330,
+                                "id": 324,
                                 "name": "IndexAccess",
                                 "src": "590:18:2"
                               }
                             ],
-                            "id": 331,
+                            "id": 325,
                             "name": "MemberAccess",
                             "src": "590:23:2"
                           },
@@ -793,7 +793,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "creator",
-                              "referencedDeclaration": 284,
+                              "referencedDeclaration": 278,
                               "type": "address"
                             },
                             "children": [
@@ -813,11 +813,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 289,
+                                      "referencedDeclaration": 283,
                                       "type": "mapping(address => struct omneeRegistry.Registry storage ref)",
                                       "value": "theLinks"
                                     },
-                                    "id": 332,
+                                    "id": 326,
                                     "name": "Identifier",
                                     "src": "615:8:2"
                                   },
@@ -827,41 +827,41 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 321,
+                                      "referencedDeclaration": 315,
                                       "type": "address",
                                       "value": "_address"
                                     },
-                                    "id": 333,
+                                    "id": 327,
                                     "name": "Identifier",
                                     "src": "624:8:2"
                                   }
                                 ],
-                                "id": 334,
+                                "id": 328,
                                 "name": "IndexAccess",
                                 "src": "615:18:2"
                               }
                             ],
-                            "id": 335,
+                            "id": 329,
                             "name": "MemberAccess",
                             "src": "615:26:2"
                           }
                         ],
-                        "id": 336,
+                        "id": 330,
                         "name": "TupleExpression",
                         "src": "589:53:2"
                       }
                     ],
-                    "id": 337,
+                    "id": 331,
                     "name": "Return",
                     "src": "582:60:2"
                   }
                 ],
-                "id": 338,
+                "id": 332,
                 "name": "Block",
                 "src": "572:77:2"
               }
             ],
-            "id": 339,
+            "id": 333,
             "name": "FunctionDefinition",
             "src": "495:154:2"
           },
@@ -875,7 +875,7 @@
               ],
               "name": "test",
               "payable": false,
-              "scope": 348,
+              "scope": 342,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -888,7 +888,7 @@
                   ]
                 },
                 "children": [],
-                "id": 340,
+                "id": 334,
                 "name": "ParameterList",
                 "src": "668:2:2"
               },
@@ -898,7 +898,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 347,
+                      "scope": 341,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -911,17 +911,17 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 341,
+                        "id": 335,
                         "name": "ElementaryTypeName",
                         "src": "695:4:2"
                       }
                     ],
-                    "id": 342,
+                    "id": 336,
                     "name": "VariableDeclaration",
                     "src": "695:4:2"
                   }
                 ],
-                "id": 343,
+                "id": 337,
                 "name": "ParameterList",
                 "src": "694:6:2"
               },
@@ -929,7 +929,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 343
+                      "functionReturnParameters": 337
                     },
                     "children": [
                       {
@@ -945,32 +945,32 @@
                           "type": "int_const 69",
                           "value": "69"
                         },
-                        "id": 344,
+                        "id": 338,
                         "name": "Literal",
                         "src": "718:2:2"
                       }
                     ],
-                    "id": 345,
+                    "id": 339,
                     "name": "Return",
                     "src": "711:9:2"
                   }
                 ],
-                "id": 346,
+                "id": 340,
                 "name": "Block",
                 "src": "701:26:2"
               }
             ],
-            "id": 347,
+            "id": 341,
             "name": "FunctionDefinition",
             "src": "655:72:2"
           }
         ],
-        "id": 348,
+        "id": 342,
         "name": "ContractDefinition",
         "src": "25:704:2"
       }
     ],
-    "id": 349,
+    "id": 343,
     "name": "SourceUnit",
     "src": "0:729:2"
   },
@@ -982,9 +982,9 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0x4e72770760c011647d4873f60a3cf6cdea896cd8"
+      "address": "0xaa588d3737b611bafd7bd713445b314bd453a5c8"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-26T15:12:56.135Z"
+  "updatedAt": "2018-03-08T01:11:35.970Z"
 }

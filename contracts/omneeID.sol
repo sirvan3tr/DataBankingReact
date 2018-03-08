@@ -3,22 +3,28 @@ pragma solidity ^0.4.6;
 contract omneeID {
 
     struct omneeInfo {
-        uint entity_type;
+        uint entityType;
         string firstname;
         string lastname;
         string email;
-        
+        string phoneNum;
+        address owner;
     }
 
     omneeInfo theUser;
     address public owner;
 
     // Constructor
-    function omneeID(uint _entity_type, string _f_name, string _l_name, string _email) {
-        theUser.entity_type = _entity_type;
+    function omneeID(uint _entity_type, string _f_name, string _l_name, string _email, address _senderAddress) public {
+        // We should have a if statement and using oraclise we connect to.
+        // a server with the original omneePortal address.
+        // so that we only create this contract if it is created by it.
+
+        theUser.entityType = _entity_type;
         theUser.firstname = _f_name;
         theUser.lastname = _l_name;
         theUser.email = _email;
+        theUser.owner = _senderAddress;
         owner = msg.sender;
     }
 
@@ -34,25 +40,11 @@ contract omneeID {
         }
     }
 
-    // Ask the owner if they can link their identity
-    function hello() constant returns(string _hello){
-        return "hello world";
-    }
-
-    function getName() constant returns(string _f_name) {
+    function getName() public constant returns(string _f_name) {
         return theUser.firstname;
     }
-    //
-    function getInfo() constant returns(string name_, string lastname_, string email_) {
-        return (theUser.firstname, theUser.lastname, theUser.email);
-    }
 
-    function whoIsOwner() constant returns(address owner) {
-        return owner;
-    }
-
-    function saySomethingElse(string newSaying) returns(bool success) {
-        //saySomething = newSaying;
-        //return true;
+    function getInfo() public constant returns(string name_, string lastname_, string email_, address _owner) {
+        return (theUser.firstname, theUser.lastname, theUser.email, theUser.owner);
     }
 }
