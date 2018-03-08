@@ -16,6 +16,8 @@ import {
 
 // Import webpages
 import Contact from "./Contact";
+import About from "./active";
+
 //import active from "./active";
 
 
@@ -207,6 +209,8 @@ class App extends Component {
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
         </nav>
         <Route path="/Contact" component={Contact} />
+        <Route path="/About" component={About} />
+        
 
         <main className="container">
         <div className="pure-g">
