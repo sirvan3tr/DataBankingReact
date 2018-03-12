@@ -1,6 +1,9 @@
 /* PAGE */
 
-body,
+body {
+  margin: 0;
+}
+
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
   /*background: url('./imgs/geometry.png');*/
@@ -19,11 +22,47 @@ code {
   background: #eee;
 }
 
+
 .container {
   box-sizing: border-box;
   width: 100%;
   padding: 45px 20px;
 }
+.column {
+  float: left;
+  width: 50%;
+}
+/* Middle column */
+.column.middle {
+  width: 75%;
+}
+
+.columnside {
+  box-sizing: border-box;
+  float:right ;
+  width: 25%;
+}
+.Box {
+  box-sizing: content-box;
+  float: right;
+  padding: 10px;
+}
+.Box.side{
+  width:10%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*Responsive resizing */
+@media (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
 
 /*
 .pure-button-primary {
@@ -81,6 +120,11 @@ code {
   font-weight: bold;
   text-transform: none;
 }
+.navbar .pure-menu-heading-right {
+  font-weight: bold;
+  text-transform: none;
+  float: right;
+}
 
 .navbar .navbar-right {
   float: right;
@@ -110,3 +154,4 @@ code {
 .padding20 {
   padding: 20px;
 }
+
