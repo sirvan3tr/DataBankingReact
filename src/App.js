@@ -204,7 +204,7 @@ class App extends Component {
           <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="120"/>
         </a>
         <Link to="/" className="pure-menu-heading pure-menu-link">Home</Link>        
-        <Link to="/active" className="pure-menu-heading pure-menu-link">Solution</Link>
+        <Link to="/active" className="pure-menu-heading pure-menu-link">Solutions</Link>
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">About</Link>             
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
         </nav>
