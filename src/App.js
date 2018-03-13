@@ -16,7 +16,7 @@ import {
 
 // Import webpages
 import Contact from "./Contact";
-import About from "./active";
+//import About from "./active";
 
 //import active from "./active";
 
@@ -93,7 +93,7 @@ class App extends Component {
     var omneePortalInstance, omneeIDInstance
 
     // Record the current account holder to display on page
-    this.setState({account: this.state.web3.eth.accounts[0]})
+    //this.setState({account: this.state.web3.eth.accounts[0]})
     
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
@@ -209,7 +209,6 @@ class App extends Component {
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
         </nav>
         <Route path="/Contact" component={Contact} />
-        <Route path="/About" component={About} />
         
 
         <main className="container">
