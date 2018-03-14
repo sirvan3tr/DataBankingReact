@@ -16,8 +16,9 @@ import {
 
 // Import webpages
 import Contact from "./Contact";
-//import About from "./active";
-
+import About from "./About";
+import Register from "./Register";
+import Home from"./Home";
 //import active from "./active";
 
 
@@ -28,7 +29,7 @@ import './App.css'
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props) ;
 
     this.state = {
       storageValue: 45,
@@ -42,14 +43,14 @@ class App extends Component {
       formName: '',
       formSurname: '',
       formEmail: ''
-    }
+    } ;
 
     this.userDetail = {
       name: null,
       surname: null,
       email: null,
       omneeIDAddress: null
-    }
+    } ;
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,7 +64,7 @@ class App extends Component {
       this.setState({
         web3: results.web3,
         account: results.web3.eth.accounts[0]
-      })
+      }) ;
 
       // Instantiate contract once web3 provided.
       this.instantiateContract()
@@ -81,19 +82,19 @@ class App extends Component {
      * state management library, but for convenience I've placed them here.
      */
 
-    const contract = require('truffle-contract')
+    const contract = require('truffle-contract') ;
 
-    const omneePortal = contract(omneePortalContract)
-    const omneeID = contract(omneeIDContract)
+    const omneePortal = contract(omneePortalContract) ;
+    const omneeID = contract(omneeIDContract) ;
     
-    omneePortal.setProvider(this.state.web3.currentProvider)
-    omneeID.setProvider(this.state.web3.currentProvider)
+    omneePortal.setProvider(this.state.web3.currentProvider) ;
+    omneeID.setProvider(this.state.web3.currentProvider) ;
 
     // Declaring this for later so we can chain functions
-    var omneePortalInstance, omneeIDInstance
+    var omneePortalInstance, omneeIDInstance ;
 
     // Record the current account holder to display on page
-    //this.setState({account: this.state.web3.eth.accounts[0]})
+    this.setState({account: this.state.web3.eth.accounts[0]}) ;
     
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
@@ -104,28 +105,28 @@ class App extends Component {
       }).then((result) => {
         if(result.c[0] === 1) // user doesn't exist, we need to create an id
         {
-          console.log('User doesnt exist, attempting to create user')
+          console.log('User doesnt exist, attempting to create user') ;
           this.setState({registered: false});
         } else {
-          console.log('User exists, moving on...')
+          console.log('User exists, moving on...') ;
           this.setState({registered: true});
         }
       }).then((result) => {
-        console.log('Getting omneeID address')
+        console.log('Getting omneeID address') ;
         // get the omneeID ID
         return omneePortalInstance.id.call({from: accounts[0]})
       }).then((result) => {
-        console.log(result)
+        console.log(result) ;
         this.userDetail.omneeIDAddress = result;
-        console.log('Connecting to omneeID contract to get info')
+        console.log('Connecting to omneeID contract to get info') ;
         omneeIDInstance = omneeID.at(result);
         return omneeIDInstance.getInfo.call({from: accounts[0]})
       }).then((result) => {
-        console.log(result)
+        console.log(result) ;
         if (result === undefined || result === null || result[0] === "") {
           console.log('No user info found')
         } else {
-          console.log('User info found')
+          console.log('User info found') ;
           this.setState({
             name: result[0],
             surname: result[1],
@@ -141,19 +142,19 @@ class App extends Component {
     alert('A name was submitted: ' + this.state.formName);
     event.preventDefault();
 
-    const contract = require('truffle-contract')
+    const contract = require('truffle-contract') ;
 
-    const omneePortal = contract(omneePortalContract)
-    const omneeID = contract(omneeIDContract)
+    const omneePortal = contract(omneePortalContract) ;
+    const omneeID = contract(omneeIDContract) ;
     
-    omneePortal.setProvider(this.state.web3.currentProvider)
-    omneeID.setProvider(this.state.web3.currentProvider)
+    omneePortal.setProvider(this.state.web3.currentProvider) ;
+    omneeID.setProvider(this.state.web3.currentProvider) ;
 
     var omneePortalInstance, omneeIDInstance
 
     this.state.web3.eth.getAccounts((error, accounts) => {
       omneePortal.deployed().then((instance) => {
-        omneePortalInstance = instance
+        omneePortalInstance = instance ;
         return omneePortalInstance.createID.sendTransaction(
           1, 'Sirvan', 'Almasi', 'email', {from: accounts[0]})
       }).then((result) => {
@@ -195,54 +196,42 @@ class App extends Component {
   }
 
   render() {
-    const form = this.registerForm()
+    const form = this.registerForm() ;
     return (
       <Router>
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-        <a href="/home" className="pure-menu-heading pure-menu-link">
-          <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="120"/>
+        <a href="/Home" className="pure-menu-heading pure-menu-link">
+          <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="80"/>
         </a>
-        <Link to="/" className="pure-menu-heading pure-menu-link">Home</Link>        
+
         <Link to="/active" className="pure-menu-heading pure-menu-link">Solutions</Link>
-        <Link to="/Contact" className="pure-menu-heading pure-menu-link">About</Link>             
+        <Link to="/About" className="pure-menu-heading pure-menu-link">About</Link>
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
+        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Log In</Link>
+        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
+
         </nav>
         <Route path="/Contact" component={Contact} />
-        
+        <Route path="/About" component={About} />
+        <Route path="/Register" component={Register} />
+        <Route path="/Home" component={Home} />
 
-        <main className="container">
-        <div className="pure-g">
-          <div className="pure-u-1-2">
-            <div className="padding20">
-            <h1>What is omnee?</h1>
-            <h2>omnee is a decentralised identity and data management network</h2>
-            </div>
-          </div>
-          <div className="pure-u-1-2">
-            <div className="padding20">
-            <h3>Welcome, {this.state.name} {this.state.surname}</h3>
-            Your Ethereum address: <br />
-            <p className="address">{this.state.account}</p>
+          <div className="columnside">
 
-            Your omneeID address: <br />
-            <p className="address">{this.userDetail.omneeIDAddress}</p>
-            <h3>Your details are:</h3>
-            <ul>
-              <li><strong>First name:</strong> {this.state.name}</li>
-              <li><strong>Surname and other name(s):</strong> {this.state.surname}</li>
-              <li><strong>Email address:</strong> {this.state.email}</li>
-              <li><strong>Owner add:</strong> {this.state.owner}</li>
-            </ul>
-              {form}
-              </div>
+              <h3>Welcome, {this.state.name} {this.state.surname}</h3>
+              Your Ethereum address: <br />
+              <p className="address">{this.state.account}</p>
+
+              Your omneeID address: <br />
+              <p className="address">{this.userDetail.omneeIDAddress}</p>
           </div>
-        </div>
-        </main>
-      </div>
+          </div>
+
+
       </Router>
     );
   }
 }
 
-export default App
+export default App ;
