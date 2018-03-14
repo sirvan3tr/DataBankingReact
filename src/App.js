@@ -202,14 +202,14 @@ class App extends Component {
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
         <a href="/Home" className="pure-menu-heading pure-menu-link">
-          <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="120"/>
+          <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="80"/>
         </a>
 
-        <Link to="/Register" className="pure-menu-heading pure-menu-heading-right pure-menu-link">Log In</Link>
-        <Link to="/Register" className="pure-menu-heading pure-menu-heading-right pure-menu-link">Register</Link>
         <Link to="/active" className="pure-menu-heading pure-menu-link">Solutions</Link>
         <Link to="/About" className="pure-menu-heading pure-menu-link">About</Link>
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
+        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Log In</Link>
+        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
 
         </nav>
         <Route path="/Contact" component={Contact} />

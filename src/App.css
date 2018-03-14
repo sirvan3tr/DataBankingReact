@@ -136,7 +136,7 @@ code {
 }
 
 .header-logo {
-  padding-top: 5px;
+  padding-top: 0 !important;
 }
 
 /* General */
@@ -155,3 +155,9 @@ code {
   padding: 20px;
 }
 
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
