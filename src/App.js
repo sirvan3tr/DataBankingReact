@@ -15,13 +15,14 @@ import {
 } from "react-router-dom";
 
 // Import webpages
-import Contact from "./Contact";
-import About from "./About";
+import Contact from "./components/Contact";
+import About from "./components/About";
 import Register from "./Register";
 import Home from"./Home";
 //import active from "./active";
 
-
+// Utilities
+//import 'bootstrap';
 import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
@@ -218,6 +219,24 @@ class App extends Component {
         <Route path="/Home" component={Home} />
 
           <div className="columnside">
+
+          <form>
+            <div className="form-group">
+              
+              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+              <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div className="form-group">
+              
+              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+            </div>
+            <div className="form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+              <label className="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+
 
               <h3>Welcome, {this.state.name} {this.state.surname}</h3>
               Your Ethereum address: <br />
