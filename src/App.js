@@ -15,17 +15,18 @@ import {
 } from "react-router-dom";
 
 // Import webpages
-import Contact from "./Contact";
-import About from "./About";
+import Contact from "./components/Contact";
+import About from "./components/About";
 import Register from "./Register";
 import Home from"./Home";
 //import active from "./active";
 
-
+// Utilities
 import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -170,28 +171,32 @@ class App extends Component {
 
   registerForm() {
     return (
-      <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit}>
-              <div className="pure-control-group">
-                  <label>First Name</label>
-                  <input id="firstname" type="text" 
-                    placeholder="First Name" value={this.state.formName} onChange={this.handleChange} />
-                  <span className="pure-form-message-inline">This is a required field.</span>
-              </div>
-
-              <div className="pure-control-group">
-                  <label>Second Name</label>
-                  <input id="secondname" type="text" placeholder="Second Name" value={this.state.formSurname}/>
-              </div>
-
-              <div className="pure-control-group">
-                  <label>Email Address</label>
-                  <input id="email" type="email" placeholder="Email Address"/>
-              </div>
-
-              <div className="pure-controls">
-                  <button type="submit" className="pure-button pure-button-primary">Submit</button>
-              </div>
-      </form>
+      <div className="row justify-content-md-center">
+        <div className="registerForm col-md-5">
+          <h4>Welcome, please enter your details</h4>
+          Your Ethereum address: <br />
+          <p className="address">{this.state.account}</p>
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>First name</label>
+              <input type="email" className="form-control" id="registerFirstName" value={this.state.formName} onChange={this.handleChange} />
+            </div>
+            <div className="form-group">
+              <label>Surname</label>      
+              <input type="text" className="form-control" id="registerSurname" placeholder="Second Name" value={this.state.formSurname} />
+            </div>
+            <div className="form-group">
+              <label>Email Address</label>
+              <input id="email" className="form-control" type="email" placeholder="Email Address"/>
+            </div>
+            <div className="form-group">
+              <label>NHS Number</label>
+              <input id="registerNHSNumber" className="form-control" type="text" placeholder="NHS Number"/>
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
     )
   }
 
@@ -199,7 +204,7 @@ class App extends Component {
     const form = this.registerForm() ;
     return (
       <Router>
-      <div className="App">
+      <div className="Container">
         <nav className="navbar pure-menu pure-menu-horizontal">
         <a href="/Home" className="pure-menu-heading pure-menu-link">
           <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="80"/>
@@ -212,13 +217,16 @@ class App extends Component {
         <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
 
         </nav>
+        <div className="row justify-content-md-center">
+        <div className="col col-md-8">
         <Route path="/Contact" component={Contact} />
         <Route path="/About" component={About} />
         <Route path="/Register" component={Register} />
         <Route path="/Home" component={Home} />
-
+        
+        
+        {form}
           <div className="columnside">
-
               <h3>Welcome, {this.state.name} {this.state.surname}</h3>
               Your Ethereum address: <br />
               <p className="address">{this.state.account}</p>
@@ -227,7 +235,9 @@ class App extends Component {
               <p className="address">{this.userDetail.omneeIDAddress}</p>
           </div>
           </div>
-
+          </div>
+          </div>
+          
 
       </Router>
     );

@@ -1,4 +1,4 @@
-import getWeb3 from './utils/getWeb3'
+//import getWeb3 from './utils/getWeb3'
 import React, { Component } from 'react'
 
  class userInfo extends Component {
