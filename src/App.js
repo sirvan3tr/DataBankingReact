@@ -19,7 +19,6 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Register from "./Register";
 import Home from"./Home";
-//import active from "./active";
 
 // Utilities
 import './css/oswald.css'
@@ -35,6 +34,7 @@ class App extends Component {
     this.state = {
       storageValue: 45,
       account: 0,
+      acc: 0,
       web3: null,
       registered: false,
       name: 'n/a',
@@ -50,6 +50,7 @@ class App extends Component {
       name: null,
       surname: null,
       email: null,
+      nhsNumber: null,
       omneeIDAddress: null
     } ;
     
@@ -77,14 +78,15 @@ class App extends Component {
 
   instantiateContract() {
     /*
-     * SMART CONTRACT EXAMPLE
+     * Authenticate the user
      *
-     * Normally these functions would be called in the context of a
-     * state management library, but for convenience I've placed them here.
+     * Need to be part of a state management library (redux or MobX)
+     * 
      */
 
     const contract = require('truffle-contract') ;
 
+    // Get the contracts
     const omneePortal = contract(omneePortalContract) ;
     const omneeID = contract(omneeIDContract) ;
     
@@ -95,7 +97,7 @@ class App extends Component {
     var omneePortalInstance, omneeIDInstance ;
 
     // Record the current account holder to display on page
-    this.setState({account: this.state.web3.eth.accounts[0]}) ;
+    //this.setState({account: this.state.web3.eth.accounts[0]}) ;
     
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
@@ -109,17 +111,17 @@ class App extends Component {
           console.log('User doesnt exist, attempting to create user') ;
           this.setState({registered: false});
         } else {
-          console.log('User exists, moving on...') ;
+          console.log('User exists, moving on...');
           this.setState({registered: true});
         }
       }).then((result) => {
-        console.log('Getting omneeID address') ;
+        console.log('Getting omneeID address');
         // get the omneeID ID
         return omneePortalInstance.id.call({from: accounts[0]})
       }).then((result) => {
-        console.log(result) ;
+        console.log(result);
         this.userDetail.omneeIDAddress = result;
-        console.log('Connecting to omneeID contract to get info') ;
+        console.log('Connecting to omneeID contract to get info');
         omneeIDInstance = omneeID.at(result);
         return omneeIDInstance.getInfo.call({from: accounts[0]})
       }).then((result) => {
@@ -219,12 +221,17 @@ class App extends Component {
         </nav>
         <div className="row justify-content-md-center">
         <div className="col col-md-8">
-        <Route path="/Contact" component={Contact} />
+
+        <Route
+          path='/Contact'
+          render={(props) => <Contact {...props} name={this.state.name} />}
+        />
+
         <Route path="/About" component={About} />
         <Route path="/Register" component={Register} />
         <Route path="/Home" component={Home} />
         
-        
+        <h5>{this.state.acc}</h5>
         {form}
           <div className="columnside">
               <h3>Welcome, {this.state.name} {this.state.surname}</h3>
