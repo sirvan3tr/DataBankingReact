@@ -23,13 +23,29 @@ import Home from"./Home";
 // Utilities
 import './css/oswald.css'
 import './css/open-sans.css'
-import './css/pure-min.css'
+//import './css/pure-min.css'
+import './css/bootstrap.css'
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+class newOne extends Component {
+ constructor(props) {
+  super(props);
+  this.userDetailz = {
+    name: null,
+    surname: null,
+    email: null,
+    nhsNumber: null,
+    omneeIDAddress: null
+  };
+ }
 
-class App extends Component {
+
+}; 
+
+class App extends newOne {
   constructor(props) {
-    super(props) ;
+    super(props);
 
     this.state = {
       storageValue: 45,
@@ -44,7 +60,7 @@ class App extends Component {
       formName: '',
       formSurname: '',
       formEmail: ''
-    } ;
+    };
 
     this.userDetail = {
       name: null,
@@ -52,10 +68,19 @@ class App extends Component {
       email: null,
       nhsNumber: null,
       omneeIDAddress: null
-    } ;
+    };
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // Define all user detials
+  setUser(_name, _surname, _em, _nhsN, _omIDAd) {
+    this.userDetail.name = _name
+    this.userDetail.surname = _surname;
+    this.userDetail.email = _em;
+    this.userDetail.nhsNumber = _nhsN;
+    this.userDetail.omneeIDAddress = _omIDAd;
   }
 
   componentWillMount() {
@@ -130,11 +155,14 @@ class App extends Component {
           console.log('No user info found')
         } else {
           console.log('User info found') ;
+          this.setUser(result[0], result[1], result[2], result[3].c[0], result[4]);
+          this.userDetailz.email = result[2];
           this.setState({
             name: result[0],
             surname: result[1],
             email: result[2],
-            owner: result[3]
+            nhsNumber: result[3].c[0],
+            owner: result[4]
           })
         }
       })
@@ -159,7 +187,7 @@ class App extends Component {
       omneePortal.deployed().then((instance) => {
         omneePortalInstance = instance ;
         return omneePortalInstance.createID.sendTransaction(
-          1, 'Sirvan', 'Almasi', 'email', {from: accounts[0]})
+          1, 'Sirvan', 'Almasi', 'email', '9876544321', {from: accounts[0]})
       }).then((result) => {
         console.log(result)
       })
@@ -181,19 +209,19 @@ class App extends Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>First name</label>
-              <input type="email" className="form-control" id="registerFirstName" value={this.state.formName} onChange={this.handleChange} />
+              <input type="email" className="form-control" id="registerFirstName" placeholder="e.g. Alice" value={this.state.formName} onChange={this.handleChange} />
             </div>
             <div className="form-group">
               <label>Surname</label>      
-              <input type="text" className="form-control" id="registerSurname" placeholder="Second Name" value={this.state.formSurname} />
+              <input type="text" className="form-control" id="registerSurname" placeholder="e.g. Smith" value={this.state.formSurname} />
             </div>
             <div className="form-group">
               <label>Email Address</label>
-              <input id="email" className="form-control" type="email" placeholder="Email Address"/>
+              <input id="email" className="form-control" type="email" placeholder="e.g. a.smith@gmail.com"/>
             </div>
             <div className="form-group">
               <label>NHS Number</label>
-              <input id="registerNHSNumber" className="form-control" type="text" placeholder="NHS Number"/>
+              <input id="registerNHSNumber" className="form-control" placeholder="e.g. 987 654 4321" type="text"/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
@@ -231,7 +259,7 @@ class App extends Component {
         <Route path="/Register" component={Register} />
         <Route path="/Home" component={Home} />
         
-        <h5>{this.state.acc}</h5>
+        <h5>{this.userDetailz.email}</h5>
         {form}
           <div className="columnside">
               <h3>Welcome, {this.state.name} {this.state.surname}</h3>

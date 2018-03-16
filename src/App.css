@@ -99,6 +99,7 @@ code {
 /* NAVBAR */
 
 .navbar {
+  display: block !important;
   padding: 10px;
   background-color: #196cbb;
   background-color: #09d096;
@@ -123,10 +124,6 @@ code {
 .navbar .pure-menu-heading-right {
   font-weight: bold;
   text-transform: none;
-  float: right;
-}
-
-.navbar .navbar-right {
   float: right;
 }
 
