@@ -9,10 +9,10 @@ body {
   /*background: url('./imgs/geometry.png');*/
 }
 
-h1, h2, h3 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   /*font-family: 'Oswald', 'Arial Narrow', sans-serif; */
-  /* color: #196cbb; */
-  color: #093443;
+  color: #196cbb !important;
+  /* color: #093443; */
 }
 
 code {

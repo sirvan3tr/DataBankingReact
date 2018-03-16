@@ -14,36 +14,27 @@ import {
   HashRouter
 } from "react-router-dom";
 
-// Import webpages
+// Import webpages & custom libraries
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Register from "./Register";
-import Home from"./Home";
+import Home from "./Home";
+// Responsible for user login
+import userInitialisation from './userInitialisation';
 
 // Utilities
+import './App.css'
+
 import './css/oswald.css'
 import './css/open-sans.css'
 //import './css/pure-min.css'
 import './css/bootstrap.css'
 
-import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-class newOne extends Component {
- constructor(props) {
-  super(props);
-  this.userDetailz = {
-    name: null,
-    surname: null,
-    email: null,
-    nhsNumber: null,
-    omneeIDAddress: null
-  };
- }
 
 
-}; 
 
-class App extends newOne {
+class App extends userInitialisation {
   constructor(props) {
     super(props);
 
@@ -61,14 +52,6 @@ class App extends newOne {
       formSurname: '',
       formEmail: ''
     };
-
-    this.userDetail = {
-      name: null,
-      surname: null,
-      email: null,
-      nhsNumber: null,
-      omneeIDAddress: null
-    };
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,97 +59,11 @@ class App extends newOne {
 
   // Define all user detials
   setUser(_name, _surname, _em, _nhsN, _omIDAd) {
-    this.userDetail.name = _name
-    this.userDetail.surname = _surname;
-    this.userDetail.email = _em;
-    this.userDetail.nhsNumber = _nhsN;
-    this.userDetail.omneeIDAddress = _omIDAd;
-  }
-
-  componentWillMount() {
-    // Get network provider and web3 instance.
-    // See utils/getWeb3 for more info.
-    getWeb3
-    .then(results => {
-      this.setState({
-        web3: results.web3,
-        account: results.web3.eth.accounts[0]
-      }) ;
-
-      // Instantiate contract once web3 provided.
-      this.instantiateContract()
-    })
-    .catch(() => {
-      console.log('Error finding web3.')
-    })
-  }
-
-  instantiateContract() {
-    /*
-     * Authenticate the user
-     *
-     * Need to be part of a state management library (redux or MobX)
-     * 
-     */
-
-    const contract = require('truffle-contract') ;
-
-    // Get the contracts
-    const omneePortal = contract(omneePortalContract) ;
-    const omneeID = contract(omneeIDContract) ;
-    
-    omneePortal.setProvider(this.state.web3.currentProvider) ;
-    omneeID.setProvider(this.state.web3.currentProvider) ;
-
-    // Declaring this for later so we can chain functions
-    var omneePortalInstance, omneeIDInstance ;
-
-    // Record the current account holder to display on page
-    //this.setState({account: this.state.web3.eth.accounts[0]}) ;
-    
-    // Get accounts.
-    this.state.web3.eth.getAccounts((error, accounts) => {
-      omneePortal.deployed().then((instance) => {
-        omneePortalInstance = instance
-        //return omneePortalInstance.set(5, {from: accounts[0]})
-        return omneePortalInstance.userExists.call({from: accounts[0]})
-      }).then((result) => {
-        if(result.c[0] === 1) // user doesn't exist, we need to create an id
-        {
-          console.log('User doesnt exist, attempting to create user') ;
-          this.setState({registered: false});
-        } else {
-          console.log('User exists, moving on...');
-          this.setState({registered: true});
-        }
-      }).then((result) => {
-        console.log('Getting omneeID address');
-        // get the omneeID ID
-        return omneePortalInstance.id.call({from: accounts[0]})
-      }).then((result) => {
-        console.log(result);
-        this.userDetail.omneeIDAddress = result;
-        console.log('Connecting to omneeID contract to get info');
-        omneeIDInstance = omneeID.at(result);
-        return omneeIDInstance.getInfo.call({from: accounts[0]})
-      }).then((result) => {
-        console.log(result) ;
-        if (result === undefined || result === null || result[0] === "") {
-          console.log('No user info found')
-        } else {
-          console.log('User info found') ;
-          this.setUser(result[0], result[1], result[2], result[3].c[0], result[4]);
-          this.userDetailz.email = result[2];
-          this.setState({
-            name: result[0],
-            surname: result[1],
-            email: result[2],
-            nhsNumber: result[3].c[0],
-            owner: result[4]
-          })
-        }
-      })
-    })
+    this.userDetails.name = _name
+    this.userDetails.surname = _surname;
+    this.userDetails.email = _em;
+    this.userDetails.nhsNumber = _nhsN;
+    this.userDetails.omneeIDAddress = _omIDAd;
   }
 
   handleSubmit(event) {
@@ -199,39 +96,15 @@ class App extends newOne {
     console.log(event.target.varst)
   }
 
-  registerForm() {
-    return (
-      <div className="row justify-content-md-center">
-        <div className="registerForm col-md-5">
-          <h4>Welcome, please enter your details</h4>
-          Your Ethereum address: <br />
-          <p className="address">{this.state.account}</p>
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label>First name</label>
-              <input type="email" className="form-control" id="registerFirstName" placeholder="e.g. Alice" value={this.state.formName} onChange={this.handleChange} />
-            </div>
-            <div className="form-group">
-              <label>Surname</label>      
-              <input type="text" className="form-control" id="registerSurname" placeholder="e.g. Smith" value={this.state.formSurname} />
-            </div>
-            <div className="form-group">
-              <label>Email Address</label>
-              <input id="email" className="form-control" type="email" placeholder="e.g. a.smith@gmail.com"/>
-            </div>
-            <div className="form-group">
-              <label>NHS Number</label>
-              <input id="registerNHSNumber" className="form-control" placeholder="e.g. 987 654 4321" type="text"/>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-    )
-  }
-
   render() {
-    const form = this.registerForm() ;
+    var ff = "null";
+    console.log(this.userDetails)
+    if (this.userDetails.registered == true) {
+      ff = "Wow its true";
+    } else {
+      ff = "wow its false";
+    }
+    
     return (
       <Router>
       <div className="Container">
@@ -252,22 +125,21 @@ class App extends newOne {
 
         <Route
           path='/Contact'
-          render={(props) => <Contact {...props} name={this.state.name} />}
+          render={(props) => <Contact {...props} name={this.userDetails.name} />}
         />
 
         <Route path="/About" component={About} />
         <Route path="/Register" component={Register} />
         <Route path="/Home" component={Home} />
         
-        <h5>{this.userDetailz.email}</h5>
-        {form}
+        <h5>{this.userDetails.email}</h5>
           <div className="columnside">
-              <h3>Welcome, {this.state.name} {this.state.surname}</h3>
+              <h3>Welcome, {this.userDetails.name} {this.userDetails.surname}</h3>
               Your Ethereum address: <br />
-              <p className="address">{this.state.account}</p>
+              <p className="address">{this.userDetails.accountAddress}</p>
 
               Your omneeID address: <br />
-              <p className="address">{this.userDetail.omneeIDAddress}</p>
+              <p className="address">{this.userDetails.omneeIDAddress}</p>
           </div>
           </div>
           </div>
