@@ -21,7 +21,7 @@ contract omneePortal {
     }
 
     uint themsg = 0;
-    function userExists() public constant returns(uint themsg){
+    function userExists() public view returns(uint themsg){
         if (directory[msg.sender] == 0) {
             // user doesnt exist
             themsg = 1;
