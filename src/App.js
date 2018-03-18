@@ -52,58 +52,29 @@ class App extends userInitialisation {
       formSurname: '',
       formEmail: ''
     };
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // Define all user detials
-  setUser(_name, _surname, _em, _nhsN, _omIDAd) {
-    this.userDetails.name = _name
-    this.userDetails.surname = _surname;
-    this.userDetails.email = _em;
-    this.userDetails.nhsNumber = _nhsN;
-    this.userDetails.omneeIDAddress = _omIDAd;
-  }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.formName);
-    event.preventDefault();
 
-    const contract = require('truffle-contract') ;
-
-    const omneePortal = contract(omneePortalContract) ;
-    const omneeID = contract(omneeIDContract) ;
-    
-    omneePortal.setProvider(this.state.web3.currentProvider) ;
-    omneeID.setProvider(this.state.web3.currentProvider) ;
-
-    var omneePortalInstance, omneeIDInstance
-
-    this.state.web3.eth.getAccounts((error, accounts) => {
-      omneePortal.deployed().then((instance) => {
-        omneePortalInstance = instance ;
-        return omneePortalInstance.createID.sendTransaction(
-          1, 'Sirvan', 'Almasi', 'email', '9876544321', {from: accounts[0]})
-      }).then((result) => {
-        console.log(result)
-      })
-    })
-  }
-
-  handleChange(event) {
-    this.setState({formEmail: event.target.value});
-    console.log(event.target.varst)
+  userHeader() {
+    if (this.userDetails.registered == false) {
+      return (
+        <div className="fr">
+          <Link to="/login" className="pure-menu-heading pure-menu-link fr">Log In</Link>
+          <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
+        </div>
+      );
+    }else {
+      return(
+        <div className="fr">
+          Welcome, {this.userDetails.name}
+        </div>
+      );
+    }
   }
 
   render() {
-    var ff = "null";
-    console.log(this.userDetails)
-    if (this.userDetails.registered == true) {
-      ff = "Wow its true";
-    } else {
-      ff = "wow its false";
-    }
+    const userHeaderLogic = this.userHeader();
     
     return (
       <Router>
@@ -116,21 +87,28 @@ class App extends userInitialisation {
         <Link to="/active" className="pure-menu-heading pure-menu-link">Solutions</Link>
         <Link to="/About" className="pure-menu-heading pure-menu-link">About</Link>
         <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
-        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Log In</Link>
-        <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
 
+        {userHeaderLogic}
         </nav>
         <div className="row justify-content-md-center">
         <div className="col col-md-8">
-
+        {this.userDetails.name}ddd
         <Route
           path='/Contact'
           render={(props) => <Contact {...props} name={this.userDetails.name} />}
         />
 
         <Route path="/About" component={About} />
-        <Route path="/Register" component={Register} />
-        <Route path="/Home" component={Home} />
+
+        <Route
+          path='/Register'
+          render={(props) => <Register {...props} />}
+        />
+
+        <Route
+          path='/Home'
+          render={(props) => <Home {...props} />}
+        />
         
         <h5>{this.userDetails.email}</h5>
           <div className="columnside">
