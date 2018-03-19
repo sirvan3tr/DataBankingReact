@@ -58,9 +58,9 @@ class userRegistration extends userInitialisation {
 
   registerForm() {
       return (
-        <div className="row justify-content-md-center">
-          <div className="registerForm col-md-5">
-            <h4>Welcome, please enter your details</h4>
+        <div className="row my-3 p-3 bg-white rounded box-shadow justify-content-md-center">
+          <div className="col-md-6">
+            <h3>Welcome, please enter your details</h3>
             Your Ethereum address: <br />
             <p className="address">{this.userDetails.accountAddress}</p>
             <form onSubmit={this.handleSubmit}>
