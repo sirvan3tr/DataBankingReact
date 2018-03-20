@@ -61,9 +61,7 @@ class App extends userInitialisation {
       );
     }else {
       return(
-        <div className="fr">
-          Welcome, {this.userDetails.name}
-        </div>
+        <button type="button" className="btn btn-light">Welcome, {this.userDetails.name}</button>
       );
     }
   }
@@ -107,16 +105,16 @@ class App extends userInitialisation {
           path='/Home'
           render={(props) => <Home {...props} />}
         />
-        
-        <h5>{this.userDetails.email}</h5>
-          <div className="columnside">
-              <h3>Welcome, {this.userDetails.name} {this.userDetails.surname}</h3>
-              Your Ethereum address: <br />
-              <p className="address">{this.userDetails.accountAddress}</p>
+        <hr />
+        <footer className="container">
+          <p>© omnee Data Bank 2018</p>
+          <span>{this.userDetails.name} {this.userDetails.surname}</span>
+          Your Ethereum address: {this.userDetails.accountAddress} <br />
+          Your omneeID address: {this.userDetails.omneeIDAddress}
+        </footer>
 
-              Your omneeID address: <br />
-              <p className="address">{this.userDetails.omneeIDAddress}</p>
-          </div>
+
+
           </div>
           </div>
           </div>

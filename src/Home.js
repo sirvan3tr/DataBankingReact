@@ -24,9 +24,16 @@ class Home extends userInitialisation {
 
   constructor(props) {
     super(props);
-    //console.log(this.state.web3);
-    //this.getLinks();
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.mainHtml = [];
+
+    this.state = {
+      mainHtml: null
+    };
+
+    this.handleGetLinks = this.handleGetLinks.bind(this);
+    this.handleNewLink = this.handleNewLink.bind(this);
+    
   }
 
   getLinks() {
@@ -54,19 +61,47 @@ class Home extends userInitialisation {
     })
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.userDetails.name);
+  handleNewLink(event) {
+    alert('Inserting dummy data into the blockchain - I will use a proper form in the future!');
+    event.preventDefault();
+    const contract = require('truffle-contract') ;
+
+    const omneeRegistry = contract(omneeRegistryContract);
+    omneeRegistry.setProvider(this.web3.currentProvider);
+    var omneeRegistryInstance;
+
+    this.web3.eth.getAccounts((error, accounts) => {
+      omneeRegistry.deployed().then((instance) => {
+        omneeRegistryInstance = instance;
+        return omneeRegistryInstance.newLink.sendTransaction('http://google.com', 'Google', this.userDetails.omneeIDAddress, {from: accounts[0]});
+      }).then((result) => {
+        console.log(result);
+      })
+    })
+  }
+
+  appendHtml(url, title) {
+    this.mainHtml.push(<figure className="figure ml-1"><a href={url}><img src={require("./imgs/Placeholder.png")} width="150" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." /></a><figcaption className="figure-caption text-right">{title}</figcaption></figure>);
+
+    this.setState({
+       mainHtml: this.mainHtml
+    });
+ }
+
+  handleGetLinks(event) {
+    this.mainHtml = [];
+    alert('Hey ' + this.userDetails.name + ', I am going to display your latest 30 links!');
     event.preventDefault();
 
     const contract = require('truffle-contract') ;
 
     const omneeRegistry = contract(omneeRegistryContract);
     omneeRegistry.setProvider(this.web3.currentProvider) ;
-    var omneeRegistryInstance ;
+    var omneeRegistryInstance;
 
     var i = 0;
     var l = 0;
-    while(i < 3) {
+    while(i < 30) {
       console.log(i);
       this.web3.eth.getAccounts((error, accounts) => {
         omneeRegistry.deployed().then((instance) => {
@@ -74,7 +109,12 @@ class Home extends userInitialisation {
           omneeRegistryInstance = instance;
           return omneeRegistryInstance.getALink.call(this.userDetails.omneeIDAddress, i, {from: accounts[0]})
         }).then((result) => {
-          console.log("reg-->" + result);
+          console.log("reg-->" + result[0]);
+          if(result[0] == "" || result[0] == null) {
+            console.log("wow zero");
+          } else {
+            this.appendHtml(result[0], result[1]);
+          }
         })
       })
       // safety measure for now
@@ -85,18 +125,30 @@ class Home extends userInitialisation {
       i = i + 1;
       ////////
     } // for loop
-    i = 0;
+    i = 0;    
   }
 
   render() {
-    
+    var form = 'Loading...'
+    if (!this.userDetails.registered) {
+      return(<div> Please sign up... </div>);
+    } else {
     return (
       <div>
           <main role="main" className="container">
             <h1 className="mt-5">Welcome, {this.userDetails.name}</h1>
             <p className="lead">You have <span className="red">5</span> notifications, an urgent request from <a href="#">Great Ormond Street Hospital</a>, <span className="red">55</span> people have viewed your basic ID in the last 48 hours.</p>
             <p>You have linked <a href="">35 data sources</a>, see what more you can do with omnee Data Bank!</p>
+            <form className="fl" onSubmit={this.handleGetLinks}>
+              <button type="submit" className="btn btn-outline-primary">View my data</button>
+            </form>
+            
+            <form className="fl ml-1" onSubmit={this.handleNewLink}>
+              <button type="submit" className="btn btn-outline-warning">Create new link</button>
+            </form>
+            
           </main>
+          {this.state.mainHtml}
 
           <div className="my-3 p-3 bg-white rounded box-shadow">
             <h6 className="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
@@ -125,30 +177,9 @@ class Home extends userInitialisation {
               <a href="#">All updates</a>
             </small>
           </div>
-
-                    <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><a href="#">omnee</a></li>
-              <li className="breadcrumb-item active" aria-current="page">home</li>
-            </ol>
-          </nav>
-          <div className="my-3 p-3 bg-white rounded box-shadow">
-            <img className="fl" src={require('./imgs/female_nurse.jpg')} width="120"/>
-            <div className="fl">
-              <h3>{this.userDetails.name}</h3>
-              <h4>{this.userDetails.surname}</h4>
-            </div>
-            <div className="clear"></div>
-            <div className="sub-banner">
-              My work | My Education | Settings
-            </div>
-          </div>
-
-          <form onSubmit={this.handleSubmit}>
-              <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
       </div>
     );
+  }
   }
 }
 
