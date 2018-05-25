@@ -510,7 +510,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 299,
+                                      "referencedDeclaration": 480,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -742,7 +742,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 299,
+                                          "referencedDeclaration": 480,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -820,7 +820,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 299,
+                                              "referencedDeclaration": 480,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -1056,7 +1056,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 299,
+                                      "referencedDeclaration": 480,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1257,7 +1257,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 299,
+                                      "referencedDeclaration": 480,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1547,7 +1547,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 299,
+                              "referencedDeclaration": 480,
                               "type": "msg",
                               "value": "msg"
                             },
@@ -1708,7 +1708,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 480,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1888,7 +1888,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 299,
+                                      "referencedDeclaration": 480,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -2114,7 +2114,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 299,
+                                              "referencedDeclaration": 480,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -2234,10 +2234,10 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0x3d49d1ef2ade060a33c6e6aa213513a7ee9a6241",
+      "address": "0x345ca3e014aaf5dca488057592ee47305d9b3e10",
       "transactionHash": "0xedd06cd9a39c6bd0d60789692042b55e072c1505985a0cf413504011b6867dff"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-03-18T18:25:27.251Z"
+  "updatedAt": "2018-05-19T20:48:19.547Z"
 }
