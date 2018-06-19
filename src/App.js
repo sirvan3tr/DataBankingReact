@@ -23,12 +23,10 @@ import Home from "./Home";
 import userInitialisation from './userInitialisation';
 
 // Utilities
-import './App.css'
+//import './App.css'
 
-import './css/oswald.css'
-import './css/open-sans.css'
 //import './css/pure-min.css'
-import './css/bootstrap.css'
+//import './css/bootstrap.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -59,16 +57,11 @@ class App extends userInitialisation {
   userHeader() {
     if (this.userDetails.registered == false) {
       return (
-        <div className="fr">
-          <Link to="/login" className="pure-menu-heading pure-menu-link fr">Log In</Link>
-          <Link to="/Register" className="pure-menu-heading pure-menu-link fr">Register</Link>
-        </div>
+        <Link className="btn btn-outline-primary" to="/Register">Sign up</Link>
       );
     }else {
       return(
-        <div className="fr">
-          Welcome, {this.userDetails.name}
-        </div>
+        <button type="button" className="btn btn-light">Welcome, {this.userDetails.name}</button>
       );
     }
   }
@@ -79,20 +72,23 @@ class App extends userInitialisation {
     return (
       <Router>
       <div className="Container">
-        <nav className="navbar pure-menu pure-menu-horizontal">
-        <a href="/Home" className="pure-menu-heading pure-menu-link">
-          <img className="header-logo" src={require('./imgs/omnee_logo_white.png')} width="80"/>
-        </a>
 
-        <Link to="/active" className="pure-menu-heading pure-menu-link">Solutions</Link>
-        <Link to="/About" className="pure-menu-heading pure-menu-link">About</Link>
-        <Link to="/Contact" className="pure-menu-heading pure-menu-link">Contact</Link>
+      <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <Link className="navbar-brand" to="/Home">
+          <img className="d-inline-block align-top header-logo" src={require('./imgs/omnee_logo_blue.png')} width="80"/>
+        </Link>
+      <h5 className="my-0 mr-md-auto font-weight-normal"></h5>
+      <nav className="my-2 my-md-0 mr-md-3">
+        <Link to="/active" className="p-2 text-dark">Solutions</Link>
+        <Link to="/About" className="p-2 text-dark">About</Link>
+        <Link to="/Contact" className="p-2 text-dark">Contact</Link>
+      </nav>
+      {userHeaderLogic}
+    </div>
 
-        {userHeaderLogic}
-        </nav>
+
         <div className="row justify-content-md-center">
         <div className="col col-md-8">
-        {this.userDetails.name}ddd
         <Route
           path='/Contact'
           render={(props) => <Contact {...props} name={this.userDetails.name} />}
@@ -109,16 +105,16 @@ class App extends userInitialisation {
           path='/Home'
           render={(props) => <Home {...props} />}
         />
-        
-        <h5>{this.userDetails.email}</h5>
-          <div className="columnside">
-              <h3>Welcome, {this.userDetails.name} {this.userDetails.surname}</h3>
-              Your Ethereum address: <br />
-              <p className="address">{this.userDetails.accountAddress}</p>
+        <hr />
+        <footer className="container">
+          <p>© omnee Data Bank 2018</p>
+          <span>{this.userDetails.name} {this.userDetails.surname}</span>
+          Your Ethereum address: {this.userDetails.accountAddress} <br />
+          Your omneeID address: {this.userDetails.omneeIDAddress}
+        </footer>
 
-              Your omneeID address: <br />
-              <p className="address">{this.userDetails.omneeIDAddress}</p>
-          </div>
+
+
           </div>
           </div>
           </div>

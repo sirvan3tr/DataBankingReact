@@ -30,7 +30,7 @@ contract omneeID {
     }
 
     // function to make changes to users primary information
-    function changeInfo() public constant returns(string) {
+    function changeInfo() public view returns(string) {
         // Only the creator can alter the name --
         // the comparison is possible since contracts
         // are implicitly convertible to addresses.
@@ -41,7 +41,7 @@ contract omneeID {
         }
     }
 
-    function getName() public constant returns(string _f_name) {
+    function getName() public view returns(string _f_name) {
         return omneeUser.firstname;
     }
 
