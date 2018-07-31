@@ -45,7 +45,13 @@ contract omneeID {
         return omneeUser.firstname;
     }
 
+    // Returns all the users info
     function getInfo() public view returns(string name_, string lastname_, string email_, uint NHSNum_, address _owner) {
         return (omneeUser.firstname, omneeUser.lastname, omneeUser.email, omneeUser.NHSNum, omneeUser.owner);
+    }
+
+    // Description of what is being returned
+    function getInfoDesc() public view returns(string name_, string lastname_, string email_, uint NHSNum_, address _owner) {
+        return ("First name", "Last name", "Email", "NHS number", "Owner address");
     }
 }
