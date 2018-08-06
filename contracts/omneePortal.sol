@@ -7,9 +7,9 @@ contract omneePortal {
     
     // Create a new identity
     function createID(uint _entity_type, string _f_name, 
-                        string _l_name, string _email) public returns(string outputmessage) {
+                        string _l_name, string _email, uint _NHSNum) public returns(string outputmessage) {
         if (directory[msg.sender] == 0) {
-            address newID = new omneeID(1, _f_name, _l_name, _email, msg.sender);
+            address newID = new omneeID(1, _f_name, _l_name, _email, _NHSNum, msg.sender);
             directory[msg.sender] = newID;
             outputmessage = "New ID was created";
             // we have created an ID
@@ -21,7 +21,7 @@ contract omneePortal {
     }
 
     uint themsg = 0;
-    function userExists() public constant returns(uint themsg){
+    function userExists() public view returns(uint themsg){
         if (directory[msg.sender] == 0) {
             // user doesnt exist
             themsg = 1;
@@ -31,24 +31,19 @@ contract omneePortal {
         }
     }
 
-    function myadd() public constant returns(address) {
-        address myadd = msg.sender;
-        return myadd;
-    }
-
     function id() constant returns(address) {
         return directory[msg.sender];
     }
 
     // Returns the users contract address
-    function returnID() public constant returns(address omneeIDC, string themsg) {
+    function returnID() public constant returns(address omneeIDC, string theMsg) {
         if (directory[msg.sender] == 0) {
             // no ID here to return
             omneeIDC = 0;
-            themsg = "no id to return";
+            theMsg = "no id to return";
         } else {
             omneeIDC = directory[msg.sender];
-            themsg = "wassap";
+            theMsg = "wassap";
         }
     }
 }
