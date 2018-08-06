@@ -31,24 +31,19 @@ contract omneePortal {
         }
     }
 
-    function myadd() public constant returns(address) {
-        address myadd = msg.sender;
-        return myadd;
-    }
-
     function id() constant returns(address) {
         return directory[msg.sender];
     }
 
     // Returns the users contract address
-    function returnID() public constant returns(address omneeIDC, string themsg) {
+    function returnID() public constant returns(address omneeIDC, string theMsg) {
         if (directory[msg.sender] == 0) {
             // no ID here to return
             omneeIDC = 0;
-            themsg = "no id to return";
+            theMsg = "no id to return";
         } else {
             omneeIDC = directory[msg.sender];
-            themsg = "wassap";
+            theMsg = "wassap";
         }
     }
 }
