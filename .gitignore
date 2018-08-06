@@ -1,5 +1,7 @@
 VCODE.code-workspace
 .DS_STORE
+build
+.vscode
 
 # Logs
 logs
