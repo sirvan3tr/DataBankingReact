@@ -1,12 +1,8 @@
 pragma solidity ^0.4.6;
 
 contract omneeID {
-    struct omneeInfo {
+    struct entity {
         uint entityType;
-        string firstname;
-        string lastname;
-        string email;
-        uint NHSNum;
         address owner;
         string msgServer;
         bool approved;
@@ -20,22 +16,12 @@ contract omneeID {
         address approver;
     }
 
-    omneeInfo omneeUser;
+    entity public omneeUser;
     address public owner;
-
-    // list of keys
-    key[] keys;
+    key[] public keys;
 
     // Constructor
-    function omneeID(uint _entity_type, string _f_name, string _l_name, string _email, uint _NHSNum, address _senderAddress) public {
-        // We should have a if statement and using oraclise we connect to.
-        // a server with the original omneePortal address.
-        // so that we only create this contract if it is created by it.
-        omneeUser.entityType = _entity_type;
-        omneeUser.firstname = _f_name;
-        omneeUser.lastname = _l_name;
-        omneeUser.email = _email;
-        omneeUser.NHSNum = _NHSNum;
+    function omneeID(address _senderAddress) public {
         omneeUser.owner = _senderAddress;
         owner = msg.sender;
     }
@@ -43,37 +29,46 @@ contract omneeID {
     // Add a key to your contract
     // status is automatically set as active, = 1
     function addKey(string _title, string _key, string _comment) public {
-        key newKey;
-        newKey.title = _title;
-        newKey.key = _key;
-        newKey.status = true;
-        newKey.comment = _comment;
-        keys.push(newKey);
+        if(msg.sender == omneeUser.owner) {
+            keys.push(key(_title, _key, true, _comment, address(0)));
+        } 
     }
 
-    // function to make changes to users primary information
-    function changeInfo() public view returns(string) {
-        // Only the creator can alter the name --
-        // the comparison is possible since contracts
-        // are implicitly convertible to addresses.
-        if (msg.sender == address(owner)) {
-            return "hello world";
+    function lenKeys() public returns (uint size) { return keys.length; }
+
+    function getKey(uint _index) view public returns(string title, string key,
+            bool status, string comment, address approver) {
+        return (keys[_index].title, keys[_index].key, keys[_index].status,
+            keys[_index].comment, keys[_index].approver);
+    }
+
+    function isApproved() view public returns (bool approved) {
+        if(omneeUser.approved == true) return true;
+        return false;
+    }
+
+    function msgServer() view public returns (string msgServer) {
+        return omneeUser.msgServer;
+    }
+
+    function changeMsgServer(string _url) public returns (string outcome){
+        // to save gas we assume the user is using primary key
+        if(msg.sender == omneeUser.owner) {
+            omneeUser.msgServer = _url;
+            return "Successful";
         } else {
-            return omneeUser.firstname;
+            return "Do not have permission";
         }
     }
 
-    function getName() public view returns(string _f_name) {
-        return omneeUser.firstname;
+    // function to make changes to users primary information
+    function changeInfo() public view returns (string) {
+        if (msg.sender == omneeUser.owner) {
+            return "hello world";
+        } else {
+            return 'the user';
+        }
     }
 
-    // Returns all the users info
-    function getInfo() public view returns(string name_, string lastname_, string email_, uint NHSNum_, address _owner) {
-        return (omneeUser.firstname, omneeUser.lastname, omneeUser.email, omneeUser.NHSNum, omneeUser.owner);
-    }
 
-    // Description of what is being returned
-    //function getInfoDesc() public view returns(string name_, string lastname_, string email_, uint NHSNum_, address _owner) {
-        //return ("First name", "Last name", "Email", "NHS number", "Owner address");
-    //}
 }

@@ -22,12 +22,19 @@ import userInitialisation from './userInitialisation';
 class userRegistration extends userInitialisation {
   constructor(props) {
       super(props);
+
+      this.state = {
+        'firstname': '',
+        'surname': '',
+        'email': '',
+        'nhsnumber': '',
+      };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.userDetails.name);
+    alert('A name was submitted: ' + this.state.firstname);
     event.preventDefault();
 
     const contract = require('truffle-contract') ;
@@ -38,7 +45,7 @@ class userRegistration extends userInitialisation {
     omneePortal.setProvider(this.web3.currentProvider) ;
     omneeID.setProvider(this.web3.currentProvider) ;
 
-    var omneePortalInstance, omneeIDInstance
+    var omneePortalInstance, omneeIDInstance;
 
     this.web3.eth.getAccounts((error, accounts) => {
       omneePortal.deployed().then((instance) => {
@@ -52,33 +59,41 @@ class userRegistration extends userInitialisation {
   }
 
   handleChange(event) {
-      this.setState({formEmail: event.target.value});
-      console.log(event.target.varst)
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   registerForm() {
       return (
         <div className="row my-3 p-3 bg-white rounded box-shadow justify-content-md-center">
           <div className="col-md-6">
-            <h3>Welcome, please enter your details</h3>
+            <h3>Welcome,</h3>
+            <p>The thing is... you can't have your personal information on the Blockchain! You need our cool mobile phone app. You can register now and using the same public-private key pair login on your phone and initiatilise your details from there? Too much..? well we can also host your data for you if you want?</p>
             Your Ethereum address: <br />
             <p className="address">{this.userDetails.accountAddress}</p>
+
+            Use the form below if you wish to sign up and we store your data for you.
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label>First name</label>
-                <input type="email" className="form-control" id="registerFirstName" placeholder="e.g. Alice" value="" onChange={this.handleChange} />
+                <input name="firstname" type="text" className="form-control" id="registerFirstName" placeholder="e.g. Alice" onChange={this.handleChange} />
               </div>
               <div className="form-group">
                 <label>Surname</label>      
-                <input type="text" className="form-control" id="registerSurname" placeholder="e.g. Smith" value="" />
+                <input name="surname" type="text" className="form-control" id="registerSurname" placeholder="e.g. Smith" onChange={this.handleChange}/>
               </div>
               <div className="form-group">
                 <label>Email Address</label>
-                <input id="email" className="form-control" type="email" placeholder="e.g. a.smith@gmail.com"/>
+                <input name="email" id="email" className="form-control" type="email" placeholder="e.g. a.smith@gmail.com" onChange={this.handleChange}/>
               </div>
               <div className="form-group">
                 <label>NHS Number</label>
-                <input id="registerNHSNumber" className="form-control" placeholder="e.g. 987 654 4321" type="text"/>
+                <input name="nhsnumber" id="registerNHSNumber" className="form-control" placeholder="e.g. 987 654 4321" type="text" onChange={this.handleChange}/>
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
