@@ -27,7 +27,7 @@ contract omneeID {
     }
 
     // Add a key to your contract
-    // status is automatically set as active, = 1
+    // status is automatically set as active
     function addKey(string _title, string _key, string _comment) public {
         if(msg.sender == omneeUser.owner) {
             keys.push(key(_title, _key, true, _comment, address(0)));
@@ -60,15 +60,5 @@ contract omneeID {
             return "Do not have permission";
         }
     }
-
-    // function to make changes to users primary information
-    function changeInfo() public view returns (string) {
-        if (msg.sender == omneeUser.owner) {
-            return "hello world";
-        } else {
-            return 'the user';
-        }
-    }
-
 
 }
