@@ -50,8 +50,8 @@ class userRegistration extends userInitialisation {
     this.web3.eth.getAccounts((error, accounts) => {
       omneePortal.deployed().then((instance) => {
         omneePortalInstance = instance ;
-        return omneePortalInstance.createID.sendTransaction(
-          1, 'Sirvan', 'Almasi', 'email', '9876544321', {from: accounts[0]})
+        return omneePortalInstance.createID.sendTransaction({from: accounts[0]})
+          //1, 'Sirvan', 'Almasi', 'email', '9876544321', {from: accounts[0]})
       }).then((result) => {
         console.log(result)
       })
@@ -71,7 +71,7 @@ class userRegistration extends userInitialisation {
   registerForm() {
       return (
         <div className="row my-3 p-3 bg-white rounded box-shadow justify-content-md-center">
-          <div className="col-md-6">
+          <div className="col-md-12">
             <h3>Welcome,</h3>
             <p>The thing is... you can't have your personal information on the Blockchain! You need our cool mobile phone app. You can register now and using the same public-private key pair login on your phone and initiatilise your details from there? Too much..? well we can also host your data for you if you want?</p>
             Your Ethereum address: <br />

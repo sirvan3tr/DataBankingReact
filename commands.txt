@@ -32,10 +32,26 @@ app.storeSirvan('James Bond', 'DOB', 'add1')
 
 app.getName()
 
+omneeID.deployed().then(function(instance){app = instance});
 omneePortal.deployed().then(function(instance){por = instance});
 por.createID();
 id = por.id();
-omneeID.at(id);
+DIDContract = omneeID.at(id);
+DIDContract.lenKeys.call();
+DIDContract.addKey("My new key","the key","hello");
+DIDContract.getKey(1);
+
+
+# hospital contract id: 0xaa8f61728cb614f37a2fdb8b420c3c33134c7f69
+# hospital public key: 0xf17f52151ebef6c7334fad080c5704d77216b732
+# hospital priv key: 0xae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f
+
+DIDHos = omneeID.at(id);
+DIDHos = omneeID.at("0xaa8f61728cb614f37a2fdb8b420c3c33134c7f69")
+DIDHos.lenKeys.call();
+DIDHos.addKey("Veskos Key","0xf17f52151ebef6c7334fad080c5704d77216b732","hello", {from: acc[1]});
+DIDHos.getKey(1);
+
 
 app.createID(1,'Sirvan','Almasi','email')
 
